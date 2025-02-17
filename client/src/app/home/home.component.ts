@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component} from '@angular/core';
 import { RegisterComponent } from '@app/register/register.component';
 
 @Component({
@@ -9,14 +8,9 @@ import { RegisterComponent } from '@app/register/register.component';
   imports: [CommonModule, RegisterComponent],
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit {
-  http = inject(HttpClient);
+export class HomeComponent {
   registerMode = false;
-  users: any;
 
-  ngOnInit(): void {
-    this.getUsers();
-  }
   constructor(private cdr: ChangeDetectorRef) {}
 
   registerToggle() {
@@ -29,13 +23,5 @@ export class HomeComponent implements OnInit {
     this.registerMode = event;
     console.log('Cancel Register Mode:', this.registerMode);
     this.cdr.detectChanges(); // บังคับให้ Angular อัปเดต UI
-  }
-
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users').subscribe({
-      next: (response) => (this.users = response),
-      error: (error) => console.error(error),
-      complete: () => console.log('Request has completed'),
-    });
   }
 }

@@ -40,6 +40,7 @@ export class RegisterComponent {
         this.cancel();
       },
       error: (error) => {
+        console.log(error);
         this.notificationService.error(error.error || 'Registration failed');
       },
     });

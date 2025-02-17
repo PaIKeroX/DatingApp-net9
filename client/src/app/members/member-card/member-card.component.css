@@ -1,0 +1,47 @@
+.card:hover img {
+    transform: scale(1.2,1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.card img {
+    transform: scale(1.0,1.0);
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.member-icons {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+}
+
+.member-icons li {
+    display: inline-block;
+}
+
+.member-icons .btn {
+    padding: 0.25rem 0.5rem; /* ลด padding */
+    font-size: 0.875rem; /* ลดขนาดฟอนต์ */
+}
+
+.member-icons .btn i {
+    font-size: 0.875rem; /* ลดขนาดไอคอน */
+}
+
+.card-img-wrapper:hover .member-icons {
+    bottom: 0;
+    opacity: 1;
+}
+
+.animated {
+    transition: all 0.3s ease-in-out;
+}

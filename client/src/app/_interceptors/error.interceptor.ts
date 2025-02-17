@@ -9,24 +9,24 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const notification = inject(NotificationService);
 
   return next(req).pipe(
-    catchError(error => {
+    catchError((error) => {
       if (error) {
         switch (error.status) {
           case 400:
             if (error.error.errors) {
               const modalStateError = [];
               for (const key in error.error.errors) {
-                if(error.error.errors[key]) {
-                  modalStateError.push(error.error.errors[key])
+                if (error.error.errors[key]) {
+                  modalStateError.push(error.error.errors[key]);
                 }
               }
               throw modalStateError.flat();
             } else {
-              notification.error(error.error, error.status);
+              notification.error(error.error);
             }
             break;
           case 401:
-            notification.error('Unauthorized', error.status);
+            notification.error('Unauthorized');
             break;
           case 404:
             router.navigateByUrl('/not-found');
@@ -35,7 +35,10 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
             let errorMessage = 'A bad thing has happened';
             if (typeof error.error === 'string') {
               errorMessage = error.error;
-            } else if (error.error?.message && typeof error.error.message === 'string') {
+            } else if (
+              error.error?.message &&
+              typeof error.error.message === 'string'
+            ) {
               errorMessage = error.error.message;
             }
 
@@ -43,14 +46,14 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
               state: {
                 error: {
                   message: errorMessage,
-                  details: JSON.stringify(error.error, null, 2)
-                }
-              }
+                  details: JSON.stringify(error.error, null, 2),
+                },
+              },
             };
             router.navigateByUrl('/server-error', navigationExtras);
             break;
           default:
-            notification.error('Something unexpected went wrong', error.status);
+            notification.error('Something unexpected went wrong');
             break;
         }
       }

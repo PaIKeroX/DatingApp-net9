@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationService {
   constructor(private snackBar: MatSnackBar) {}
 
-  error(message: string, status?: any) { //ต้องการ parameter 2 ตัวคือ message และ status แต่มีการเรียกใช้โดยส่งแค่ parameter เดียว ทำให้เกิด TypeScript error (เลยทำให้ parameter status เป็น optional )
+  error(message: string) { //ต้องการ parameter 2 ตัวคือ message และ status แต่มีการเรียกใช้โดยส่งแค่ parameter เดียว ทำให้เกิด TypeScript error (เลยทำให้ parameter status เป็น optional )
     this.snackBar.open(message, 'Close', {
       duration: 3000,
       horizontalPosition: 'right', 

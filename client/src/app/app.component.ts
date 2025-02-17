@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavComponent, HomeComponent],
+  imports: [CommonModule, RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
