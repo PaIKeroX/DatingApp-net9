@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { AccountService } from './_services/account.service';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
+import { NgxSpinnerComponent } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavComponent],
+  imports: [CommonModule, RouterOutlet, NavComponent, NgxSpinnerComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {

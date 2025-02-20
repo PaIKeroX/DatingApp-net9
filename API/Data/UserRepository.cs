@@ -44,6 +44,13 @@ public class UserRepository(DataContext context, IMapper mapper) : IUserReposito
             .SingleOrDefaultAsync(x => x.UserName == username);
     }
 
+    public async Task<bool> SaveAllAsync()
+    {
+        // SaveChangesAsync จะคืนค่าจำนวนแถวที่ถูกเปลี่ยนแปลงในฐานข้อมูล
+        // ถ้ามีการเปลี่ยนแปลง (จำนวนแถว > 0) จะคืนค่า true, ถ้าไม่มีการเปลี่ยนแปลงจะคืนค่า false
+        return await context.SaveChangesAsync() > 0;
+    }
+
     public async Task<bool> SaveAsync()
     {
         return await context.SaveChangesAsync() > 0;

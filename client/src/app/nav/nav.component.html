@@ -1,22 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/" routerLinkActive="active" >DatingApp</a>
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">DatingApp</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <!-- แสดงเมนูเฉพาะเมื่อ login แล้ว -->
-
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         @if (accountService.currentUser()) {
           <li class="nav-item">
             <a routerLink="/members" routerLinkActive="active" class="nav-link" href="#">Matches</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/lists" routerLinkActive="active" class="nav-link" >Lists</a>
+            <a routerLink="/lists" routerLinkActive="active" class="nav-link">Lists</a>
           </li>
-          
           <li class="nav-item">
             <a routerLink="/messages" routerLinkActive="active" class="nav-link" href="#">Messages</a>
           </li>
@@ -24,13 +22,13 @@
         <li class="nav-item">
           <a routerLink="/errors" routerLinkActive="active" class="nav-link" href="#">Errors</a>
         </li>
-
       </ul>
 
-      <!-- ส่วน login/logout  -->
+      <!-- ส่วน login/logout และ edit profile -->
       @if (accountService.currentUser()) {
       <div class="d-flex ms-auto align-items-center">
-        <span class="me-3">Welcome {{ accountService.currentUser()?.username | titlecase}}</span>
+        <span class="me-3">Welcome {{ accountService.currentUser()?.username | titlecase }}</span>
+        <a routerLink="/member/edit" class="btn btn-outline-primary me-2">Edit Profile</a>
         <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
       </div>
       } @else {
