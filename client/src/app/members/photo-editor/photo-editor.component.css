@@ -1,0 +1,11 @@
+/* .nv-file.over {
+    border: dotted 3px red;
+} */
+
+.my-drop-zone {
+    white-space: normal; /* อนุญาตให้ข้อความขึ้นบรรทัดใหม่ได้ */
+    word-wrap: break-word; /* อนุญาตให้คำยาว ๆ ขึ้นบรรทัดใหม่ได้ */
+    overflow: hidden; /* ป้องกันข้อความเลื่อนออกนอกพื้นที่ */
+    text-overflow: ellipsis; /* ถ้าข้อความยาวเกิน ให้แสดง ... */
+    max-width: 100%; /* จำกัดความกว้างของ container */
+  }

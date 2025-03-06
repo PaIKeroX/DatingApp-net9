@@ -16,7 +16,7 @@ export class HomeComponent {
   registerToggle() {
     this.registerMode = !this.registerMode;
     console.log('Register Mode:', this.registerMode);
-    this.cdr.detectChanges(); // บังคับให้ Angular อัปเดต UI
+    this.cdr.detectChanges(); // บังคับให้ Angular อัปเดต UI เนื่องจากก่อนหน้านี้ ส่วนของ angular ไม่ detect หน้าต่างใหม่หลังกดปุ่ม
   }
 
   cancelRegisterMode(event: boolean) {
