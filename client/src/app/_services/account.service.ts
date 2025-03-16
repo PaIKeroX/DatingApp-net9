@@ -3,12 +3,14 @@ import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../_models/user';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { LikesService } from './likes.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
   private http = inject(HttpClient);
+  private likeService = inject(LikesService);
   baseUrl = environment.apiUrl;
   currentUser = signal<User | null>(null);
 
@@ -36,6 +38,7 @@ export class AccountService {
   setCurrentUser(user: User) {
     localStorage.setItem('user', JSON.stringify(user)); // บันทึกผู้ใช้ใน localStorage
     this.currentUser.set(user); // ตั้งค่าผู้ใช้ปัจจุบัน
+    this.likeService.getLikeIds(); // รับ id ที่ถูกใช้
   }
 
   logout() {
