@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AccountService } from '../_services/account.service';
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
@@ -16,8 +16,7 @@ import { NotificationService } from '@app/_services/notification.service';
     BsDropdownModule,
     RouterLink,
     RouterLinkActive,
-    MatSnackBarModule,
-    TitleCasePipe
+    MatSnackBarModule
   ],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],

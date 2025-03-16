@@ -14,6 +14,7 @@ import { errorInterceptor } from './_interceptors/error.interceptor';
 import { jwtInterceptor } from './_interceptors/jwt.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { loadingInterceptor } from './_interceptors/loading.interceptor';
+import { TimeagoModule } from 'ngx-timeago';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,6 +27,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(), // จำเป็นสำหรับ Material animations
     importProvidersFrom(MatSnackBarModule),
 
-    importProvidersFrom(BrowserAnimationsModule, NgxSpinnerModule)
+    importProvidersFrom(BrowserAnimationsModule, NgxSpinnerModule, TimeagoModule.forRoot())
   ],
 };
